@@ -15,12 +15,15 @@ function destroyer(arr) {
   function weedOut(value) {
     console.log(args.length);
 
-      if(value === args[0] || value === args[1]) {
+      if(args.length > 2 && (value === args[0] || value === args[1] || value === [2])) {
         return false;
+      } else if (value === args[0] || value === args[1]) {
+          return false;
+      } else {
+          return true;
       }
-      return true;
-    }
 
+    }
 
   //var args = arr.slice.call(arguments,0);
   //[Array[6], 2, 3]
@@ -32,11 +35,11 @@ function destroyer(arr) {
   var holdArray = arr.filter(weedOut);
 
   console.log(holdArray);
-  return arr;
+  return holdArray;
 }
 
-console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+//console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
 //console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3));
-//console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5));
+console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5));
 //console.log(destroyer([2, 3, 2, 3], 2, 3));
 //console.log(destroyer(["tree", "hamburger", 53], "tree", 53));
