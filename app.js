@@ -1,41 +1,22 @@
 /********************************************************************************
-*                               Falsy Bouncer                                   *
-* Remove all falsy values from an array. Falsy values in JavaScript are false,  *
-* null, 0, "", undefined, and NaN.                                              *
+*                              Seek and Destroy                                 *
+* There is an initial array (the first argument in the destroyer function),     *
+* followed by one or more arguments. The destroyer function removes all         *
+* elements from the initial array that are of the same value as the arguments   *
 ********************************************************************************/
-
 function destroyer(arr) {
-/*
-  console.log(arr[0]); //1
-  console.log(arr[1]); //2
-  console.log(arr[2]); //3
-  console.log(arr[3]); //1
-*/
-
-  function weedOut(value) {
-    console.log(args.length);
-
-      if(args.length > 2 && (value === args[0] || value === args[1] || value === [2])) {
-        return false;
-      } else if (value === args[0] || value === args[1]) {
-          return false;
-      } else {
-          return true;
-      }
-
-    }
-
-  //var args = arr.slice.call(arguments,0);
-  //[Array[6], 2, 3]
-  var args = arr.slice.call(arguments,1);
-  console.log(args);
-  //[2, 3]
-
-
-  var holdArray = arr.filter(weedOut);
-
-  console.log(holdArray);
-  return holdArray;
+  // The arguments object is not an Array. However, it can be converted to a
+  // real Array.
+  var args = Array.prototype.slice.call(arguments,1);
+  console.log(args); //[2, 3, 5]
+  // The filter() method creates a new array with all elements that pass the
+  // test implemented by the provided *function*.
+  return arr.filter(
+    function(element) {
+      // The indexOf() method returns the first index at which a given element
+      // can be found in the array, or -1 if it is not present.
+      return args.indexOf(element) === -1;
+    });
 }
 
 //console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
